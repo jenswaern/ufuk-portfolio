@@ -24,6 +24,7 @@
   --text-secondary: #949494; /* mobil */
   --background-primary: #f8f8f8;
   --border-primary: #141400;
+  --icon-disabled: #d1d1d1; /* inaktiv pil i Gallery Slider, ingen variabel i Figma */
 
   /*
     Radavstånd "auto" i Figma: Inters naturliga radhöjd (1,21) avrundad till

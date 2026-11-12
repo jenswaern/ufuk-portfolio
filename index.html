@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/components.css" />
+
+    <script src="js/gallery-slider.js" defer></script>
   </head>
   <body>
     <a class="skip-link link-sm" href="#main">Skip to content</a>
@@ -155,6 +157,70 @@
           loading="lazy"
           alt="Portrait of Ufuk Demir"
         />
+      </section>
+
+      <section class="gallery-slider grid" aria-label="Case: Simma Lugnt">
+        <dl class="gallery-slider__fact gallery-slider__fact--client body">
+          <dt class="text-secondary">Client</dt>
+          <dd>Simma Lugnt</dd>
+        </dl>
+        <dl class="gallery-slider__fact gallery-slider__fact--year body">
+          <dt class="text-secondary">Year</dt>
+          <dd>2024</dd>
+        </dl>
+        <dl class="gallery-slider__fact gallery-slider__fact--service body">
+          <dt class="text-secondary">Service</dt>
+          <dd>Brand Identity</dd>
+        </dl>
+
+        <!-- Pilarna visas av js/gallery-slider.js. Utan JS sveper eller rullar man. -->
+        <div class="gallery-slider__controls" hidden>
+          <button class="gallery-slider__button gallery-slider__button--prev" type="button" aria-label="Previous image" aria-controls="gallery-slider-track">
+            <span class="gallery-slider__arrow" aria-hidden="true"></span>
+          </button>
+          <button class="gallery-slider__button gallery-slider__button--next" type="button" aria-label="Next image" aria-controls="gallery-slider-track">
+            <span class="gallery-slider__arrow" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <ul class="gallery-slider__track" id="gallery-slider-track" tabindex="0" aria-label="Images">
+          <li class="gallery-slider__item">
+            <img
+              class="media-card media-card--4x5"
+              src="images/dog-sofa-780.webp"
+              srcset="images/dog-sofa-450.webp 450w, images/dog-sofa-780.webp 780w"
+              sizes="(min-width: 48em) calc(66.67vw - 53px), calc(83.33vw - 29px)"
+              width="780"
+              height="975"
+              loading="lazy"
+              alt="A Dalmatian curled up on an orange sofa"
+            />
+          </li>
+          <li class="gallery-slider__item">
+            <img
+              class="media-card media-card--4x5"
+              src="images/dog-phone-1006.webp"
+              srcset="images/dog-phone-450.webp 450w, images/dog-phone-1006.webp 1006w"
+              sizes="(min-width: 48em) calc(66.67vw - 53px), calc(83.33vw - 29px)"
+              width="1006"
+              height="1258"
+              loading="lazy"
+              alt="A Dalmatian holding a red telephone receiver to its ear"
+            />
+          </li>
+          <li class="gallery-slider__item">
+            <img
+              class="media-card media-card--4x5"
+              src="images/dog-jump-784.webp"
+              srcset="images/dog-jump-450.webp 450w, images/dog-jump-784.webp 784w"
+              sizes="(min-width: 48em) calc(66.67vw - 53px), calc(83.33vw - 29px)"
+              width="784"
+              height="980"
+              loading="lazy"
+              alt="A black and white Border Collie leaping against a blue sky"
+            />
+          </li>
+        </ul>
       </section>
 
     </main>

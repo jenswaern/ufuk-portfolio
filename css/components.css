@@ -314,6 +314,143 @@
   }
 }
 
+/* ---------- Bildslider (Figma: "Gallery Slider") ---------- */
+
+/*
+  Rad 1: Client, Year och Service, och pilarna längst till höger.
+  Rad 2: en rullbar rad med bildkort (4:5) som rastar mot gridets kolumner.
+  Mobil: Client och Year ovanför bilderna, Service under. Inga pilar, man sveper.
+  Desktop: Client, Year och Service i kolumn 1–3, 5–7 och 9–11, pilarna i kolumn 12.
+
+  Sektionen är en container, så att 100cqw är gridets innerbredd och
+  korten kan räknas i kolumner (5 på mobil, 8 på desktop).
+*/
+.gallery-slider {
+  --slider-span: 5;
+
+  container-type: inline-size;
+  align-items: start;
+}
+
+.gallery-slider__fact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  grid-row: 1;
+}
+
+.gallery-slider__fact--client {
+  grid-column: 1 / span 3;
+}
+
+.gallery-slider__fact--year {
+  grid-column: 4 / span 3;
+}
+
+.gallery-slider__fact--service {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+}
+
+/*
+  Raden går ut i marginalerna till skärmkanten, som i Figma där ramen skär av
+  korten. Utfyllnaden och scroll-padding håller korten i linje med gridet.
+*/
+.gallery-slider__track {
+  display: flex;
+  gap: var(--grid-gap);
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-inline: calc(-1 * var(--grid-margin));
+  padding-inline: var(--grid-margin);
+  scroll-padding-inline: var(--grid-margin);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.gallery-slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-slider__track:focus-visible {
+  outline-offset: -4px;
+}
+
+/* Kortet är --slider-span kolumner brett, med mellanrummen emellan. */
+.gallery-slider__item {
+  flex: none;
+  width: calc(
+    (100cqw - (var(--grid-columns) - 1) * var(--grid-gap)) / var(--grid-columns) * var(--slider-span) +
+      (var(--slider-span) - 1) * var(--grid-gap)
+  );
+  scroll-snap-align: start;
+}
+
+/* Pilarna: bara på desktop och bara när skriptet har tagit bort hidden. */
+.gallery-slider__controls {
+  display: none;
+}
+
+/*
+  Pilen från Figma (samma som i länkfoten) används som mask och fylls med
+  knappens färg: svart, grå vid hover och #D1D1D1 när den inte går att använda.
+  Masken sitter på en <span>, så att fokusmarkeringen runt knappen syns.
+*/
+.gallery-slider__button {
+  display: block;
+  color: var(--text-primary);
+  transition: color 0.15s ease;
+}
+
+.gallery-slider__button[aria-disabled="true"] {
+  color: var(--icon-disabled);
+  cursor: default;
+}
+
+@media (hover: hover) {
+  .gallery-slider__button:not([aria-disabled="true"]):hover {
+    color: var(--text-secondary);
+  }
+}
+
+.gallery-slider__arrow {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: currentcolor;
+  -webkit-mask: url("../images/arrow-forward.svg") center / contain no-repeat;
+  mask: url("../images/arrow-forward.svg") center / contain no-repeat;
+}
+
+.gallery-slider__button--prev .gallery-slider__arrow {
+  transform: scaleX(-1);
+}
+
+@media (min-width: 48em) {
+  .gallery-slider {
+    --slider-span: 8;
+  }
+
+  .gallery-slider__fact--year {
+    grid-column: 5 / span 3;
+  }
+
+  .gallery-slider__fact--service {
+    grid-column: 9 / span 3;
+    grid-row: 1;
+  }
+
+  .gallery-slider__controls:not([hidden]) {
+    display: flex;
+    gap: 16px;
+    grid-column: 12;
+    grid-row: 1;
+    justify-self: end;
+  }
+}
+
 /* ---------- Länkfot (Figma: "Link Footer" med komponenten "Link Wide") ---------- */
 
 /*

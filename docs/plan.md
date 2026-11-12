@@ -11,7 +11,7 @@ Vi jobbar ett steg i taget. Varje steg avslutas med en jämförelse mot Figma vi
 
 | Fråga | Beslut |
 | --- | --- |
-| Teknik | Ren HTML och CSS. JavaScript används inte. |
+| Teknik | Ren HTML och CSS. Undantag: ett litet skript för bildsliderns pilar (steg 10). Slidern fungerar utan det, med svep, styrplatta och tangentbord. |
 | Mobilmenyn ("Meny") | Utan JavaScript: `<details>`/`<summary>` som fäller ut länkarna. Det öppna läget följer komponenten "Navigation / Breakpoint=Mobile, Open=True" på sidan Components. |
 | Bilder | Desktop-bilderna (3 st) används i alla storlekar, i varje rams layout. Mobilramens vattenmärkta bild tas inte med. Den "lilla tumnageln" visade sig vara galleriets tredje bildkort, så på mobil visas fasadbilden där, liten i kolumn 5–6. |
 | Mellanstorlekar | Typografi och avstånd skalar flytande med `clamp()` mellan mobilvärdet vid 375 px och desktopvärdet vid 1440 px. Layouten byter från mobil till desktop vid en brytpunkt. |
@@ -131,11 +131,33 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
       - Validerat med html-validate och stylelint (standardregler). Kvar är bara stilval:
         BEM-klassnamn, `min-width` i stället för intervallsyntax, decimaler som behövs för exakta
         mått och prefix som äldre Safari behöver.
+- [x] **10. Bildslider** – komponenten "Gallery Slider" mellan Om mig och länkfoten, med
+      Client, Year och Service ovanför en rad bildkort som bläddras med pilar.
+      - Annotationerna i Figma: korten skalar med gridet och behåller formatet (4:5), och
+        pilarna bläddrar ett steg fram eller tillbaka när det går.
+      - Korten är 8 kolumner breda på desktop och 5 på mobil, räknade med container-enheter
+        (`cqw`) från gridets tokens. Raden går ut till skärmkanten som i Figma och rastar mot
+        kolumn 1 med scroll-snap.
+      - Utan JavaScript fungerar svep, styrplatta och piltangenter. `js/gallery-slider.js` visar
+        pilarna och flyttar ett kort i taget. Sista steget stannar när sista kortet ligger mot
+        högerkanten. Rörelsen är omedelbar vid "minska rörelse".
+      - Pilarna: `<button>` med `aria-label`, pilen från länkfoten som mask (samma form som Figmas
+        32 px-pil). Svart, `text/secondary` vid hover (bara med mus) och #D1D1D1
+        (`--icon-disabled`) när de inte kan användas. `aria-disabled` i stället för `disabled`,
+        så att fokus stannar på knappen. Bara på desktop, eftersom mobilramen inte har pilar.
+      - Bilderna är centrumbeskurna till 4:5 och sparade som WebP i två bredder var, 10–114 kB.
+      - Mobil som i Figma: 530 px hög, korten 283 × 354 och Service under bilderna. Desktop:
+        korten blir exakt 8 kolumner, 906,67 × 1133,33, medan Figma har 908 × 1135. Därför blir
+        sektionen 1295,33 px i stället för 1297, och sidan 4961 px.
+      - Kontrollerat vid 320, 375, 768, 1024, 1440 och 1920 px: ingen sidledsscroll och inga fel
+        i konsolen. Pilarna testade med mus och tangentbord.
 
 ## Kvar att göra
 
 - Ett riktigt mål för "Let’s work together", t.ex. en mejladress.
 - Ett större porträtt (minst 874 px brett) för skarp bild på retinaskärmar.
+- Större bilder till bildslidern (minst 1814 px breda). Dagens är 780–1006 px, så de blir lite
+  oskarpa på retinaskärmar på desktop och på skärmar bredare än 1440 px.
 - En riktig favicon.
 - Riktig text i stället för platshållarna ("Section title", lorem ipsum).
 
