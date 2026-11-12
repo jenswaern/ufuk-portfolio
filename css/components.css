@@ -277,3 +277,39 @@
     grid-row: 2;
   }
 }
+
+/* ---------- Om mig (Figma: "About Section") ---------- */
+
+/*
+  Mobil: porträttet överst och texten under, båda över hela bredden.
+  Desktop: texten i kolumn 1–4 och porträttet i kolumn 9–12, på samma rad.
+  Texten står först i HTML så att rubriken kommer före bilden för skärmläsare.
+*/
+.about-section {
+  align-items: start;
+}
+
+.about-section__text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.about-section__image {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+@media (min-width: 48em) {
+  .about-section__text {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+  }
+
+  .about-section__image {
+    grid-column: 9 / span 4;
+    grid-row: 1;
+  }
+}

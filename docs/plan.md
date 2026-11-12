@@ -92,7 +92,15 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
       - Desktop: rubriken i kolumn 1–4, grupperna i kolumn 5–8 och 9–12 i två rader. Mobil:
         rubriken överst, grupperna i kolumn 1–3 och 4–6.
       - Varje ruta stämmer med Figmas mått: 389 px hög på desktop och 341 px på mobil.
-- [ ] **7. Om mig** – text och porträtt; bilden till höger på desktop och ovanför texten på mobil.
+- [x] **7. Om mig** – text och porträtt; bilden till höger på desktop och ovanför texten på mobil.
+      - Texten i kolumn 1–4 och porträttet (4:5) i kolumn 9–12 på desktop; porträttet överst och
+        texten under på mobil. Texten står först i HTML så att rubriken kommer före bilden.
+      - Sektionen har `id="about"`, så att länken About hoppar hit.
+      - Desktop som i Figma: 610,67 px hög, porträttet 437 × 547. Mobil: 681,75 px hög, men 5 px
+        längre ner (se steg 4).
+      - Porträttet i Figma är bara 605 × 598 px, så den beskurna bilden blir 478 px bred. Det
+        räcker för vanliga skärmar men blir lite oskarpt på retina. Byt till en större bild när
+        den finns.
 - [ ] **8. Länkfot** – tre breda länkar med pil och linjer emellan, i `text/link-lg`.
 - [ ] **9. Finputs** – jämförelse mot Figma sektion för sektion vid 375, 768, 1024 och 1440 px,
       tillgänglighet (semantik, fokusmarkering, alt-texter, kontrast), validering av HTML och CSS,
