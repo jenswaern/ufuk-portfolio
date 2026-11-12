@@ -25,6 +25,14 @@
   --background-primary: #f8f8f8;
   --border-primary: #141400;
 
+  /*
+    Radavstånd "auto" i Figma: Inters naturliga radhöjd (1,21) avrundad till
+    hel pixel, alltså 20 → 24, 24 → 29 och 32 → 39 px. "line-height: normal"
+    avrundas olika beroende på skärm (29 px på vanliga skärmar, 29,5 px på
+    retina), därför räknas det ut här. Webbläsare utan round() får "normal".
+  */
+  --leading-auto: round(1.21em, 1px);
+
   /* Typsnitt */
   --font-heading: "Anton", "Arial Narrow", sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;

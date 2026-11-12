@@ -48,7 +48,9 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
       - Brytpunkten är `48em` (768 px). Där byter färgen `text/secondary` och gridet går från 6
         till 12 kolumner.
       - Textstilarna heter som i Figma: `.heading`, `.subheading`, `.body`, `.link-sm`, `.link-lg`.
-        Body och Subheading har radavståndet `normal`, som motsvarar Figmas "auto" (1,2 för Inter).
+        Body och Subheading har Figmas radavstånd "auto": Inters 1,21 avrundat till hel pixel
+        (`--leading-auto`), alltså 24, 29 och 39 px. Först användes `line-height: normal`, men
+        den blev en halv pixel högre per rad på retinaskärmar (upptäckt efter publiceringen).
       - Kontrollerat vid 375, 768 och 1440 px: alla tokens får Figmas värden vid ändpunkterna.
 - [x] **2. Navigation** – namn till vänster, Case/About/Contact till höger på desktop; "Meny" med
       `<details>` på mobil.
