@@ -11,6 +11,8 @@
 
   Så blir värdet exakt mobilvärdet vid 375 px och exakt desktopvärdet vid
   1440 px. Intercept står i rem så att texten följer webbläsarens textstorlek.
+  Intercept är avrundat uppåt en aning, så att max-värdet slår till exakt vid
+  1440 px (annars avrundar webbläsaren t.ex. 31,9999 px nedåt).
 
   Det som inte kan skala (färger, antal kolumner) byter vid brytpunkten 48em
   (768 px), samma brytpunkt som layouten byter vid.
@@ -29,18 +31,22 @@
 
   /* Grid: 16 → 32 px */
   --grid-columns: 6; /* mobil */
-  --grid-margin: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
-  --grid-gap: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
+  --grid-margin: clamp(1rem, 0.6479rem + 1.502347vw, 2rem);
+  --grid-gap: clamp(1rem, 0.6479rem + 1.502347vw, 2rem);
 
   /* Hörnradie: 4 → 8 px. Heter "croner/radius" i Figma. */
-  --corner-radius: clamp(0.25rem, 0.162rem + 0.3756vw, 0.5rem);
+  --corner-radius: clamp(0.25rem, 0.162rem + 0.375587vw, 0.5rem);
 
   /* Textstorlekar */
-  --text-heading: clamp(4rem, 2.5916rem + 6.0094vw, 8rem); /* 64 → 128 px */
-  --text-subheading: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem); /* 24 → 32 px */
-  --text-body: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); /* 20 → 24 px */
-  --text-link-sm: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); /* 20 → 24 px */
-  --text-link-lg: clamp(2rem, 1.6479rem + 1.5023vw, 3rem); /* 32 → 48 px */
+  /*
+    64 → 128 px. Under 375 px krymper rubriken i samma takt som skärmen
+    (64 / 375 = 17,066667vw), annars bryts "GOTHENBURG" mitt i ordet.
+  */
+  --text-heading: min(clamp(4rem, 2.5916rem + 6.00939vw, 8rem), 17.066667vw);
+  --text-subheading: clamp(1.5rem, 1.324rem + 0.751174vw, 2rem); /* 24 → 32 px */
+  --text-body: clamp(1.25rem, 1.162rem + 0.375587vw, 1.5rem); /* 20 → 24 px */
+  --text-link-sm: clamp(1.25rem, 1.162rem + 0.375587vw, 1.5rem); /* 20 → 24 px */
+  --text-link-lg: clamp(2rem, 1.6479rem + 1.502347vw, 3rem); /* 32 → 48 px */
 }
 
 @media (min-width: 48em) {

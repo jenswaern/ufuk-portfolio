@@ -100,3 +100,26 @@
     display: none;
   }
 }
+
+/* ---------- Rubriksektion (Figma: "Title Section") ---------- */
+
+/* Mobil: hela bredden (6 kolumner). Desktop: kolumn 1–10. */
+.title-section__heading {
+  grid-column: 1 / -1;
+  text-transform: uppercase;
+}
+
+@media (min-width: 48em) {
+  .title-section__heading {
+    grid-column: 1 / span 10;
+  }
+
+  /*
+    Raderna som i Figma: "Digital Designer" / "based in Gothenburg".
+    Utan detta hamnar "based in" på första raden när skärmen är bredare än
+    1440 px. På smalare desktop kan andra raden fortfarande brytas.
+  */
+  .title-section__line {
+    display: block;
+  }
+}

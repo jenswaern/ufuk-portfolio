@@ -58,7 +58,15 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
         enheter med mus.
       - Kontrollerat: 88 px hög på desktop, 52 px stängd och 228 px öppen på mobil, som i Figma.
       - Utan JavaScript stängs menyn inte av sig själv när man klickar på en länk.
-- [ ] **3. Rubriksektion** – "Digital designer based in Gothenburg" i Anton.
+- [x] **3. Rubriksektion** – "Digital designer based in Gothenburg" i Anton.
+      - `<h1>` i versaler, hela bredden på mobil och kolumn 1–10 på desktop.
+      - Från 48em låses raderna till "Digital Designer" / "based in Gothenburg" som i Figma, så
+        att skärmar bredare än 1440 px inte får en annan radbrytning. Mellan 768 och ca 1150 px
+        bryts andra raden till två (tre rader totalt).
+      - Under 375 px krymper rubriken med skärmen, så att "GOTHENBURG" aldrig bryts mitt i ordet
+        (kontrollerat vid 320 px).
+      - Tokens avrundade så att värdena blir exakta vid 375 och 1440 px: 320 px hög sektion på
+        desktop och 288 px på mobil, som i Figma.
 - [ ] **4. Textsektion** – "Section title" och brödtexten, i gridkolumner på desktop och staplat på
       mobil.
 - [ ] **5. Galleri** – exportera och optimera de tre bilderna från Figma; en bred bild överst och två
