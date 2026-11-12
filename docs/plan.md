@@ -16,7 +16,7 @@ Vi jobbar ett steg i taget. Varje steg avslutas med en jämförelse mot Figma vi
 | Bilder | Desktop-bilderna (3 st) används i alla storlekar, i varje rams layout. Mobilramens vattenmärkta bild och lilla tumnagel tas inte med. |
 | Mellanstorlekar | Typografi och avstånd skalar flytande med `clamp()` mellan mobilvärdet vid 375 px och desktopvärdet vid 1440 px. Layouten byter från mobil till desktop vid en brytpunkt. |
 | Text | Exakt som i Figma, inklusive platshållartexter ("Section title", lorem ipsum). |
-| Typsnitt | Anton och Inter, självhostade som woff2 (inga anrop till Google). |
+| Typsnitt | Anton 400 och Inter 400/500, laddade direkt från Google Fonts. |
 | Länkar | Case, About, Contact och länkarna i foten pekar på ankare på sidan eller `#` tills det finns mål. |
 
 ## Designtokens från Figma
@@ -42,8 +42,8 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
 ## Steg
 
 - [x] **0. Plan och repo** – frågor besvarade, plan skriven, git-repo skapat.
-- [x] **1. Grund** – filstruktur (`index.html`, `css/`, `fonts/`, `images/`), reset, självhostade
-      typsnitt, tokens som CSS-variabler med flytande `clamp()`, gridet (6/12 kolumner) och
+- [x] **1. Grund** – filstruktur (`index.html`, `css/`, `images/`), reset, typsnitt från Google
+      Fonts, tokens som CSS-variabler med flytande `clamp()`, gridet (6/12 kolumner) och
       basstilar för typografin. Lokal förhandsvisning.
       - Brytpunkten är `48em` (768 px). Där byter färgen `text/secondary` och gridet går från 6
         till 12 kolumner.
