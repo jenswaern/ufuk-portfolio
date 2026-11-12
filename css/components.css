@@ -14,6 +14,33 @@
   }
 }
 
+/* ---------- Bildkort (Figma: komponenten "Media Card") ---------- */
+
+/*
+  Bilderna är redan beskurna till rätt format. object-fit: cover gör att
+  formatet ändå håller om en bild byts mot en med andra proportioner.
+*/
+.media-card {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--corner-radius);
+  background-color: #d9d9d9; /* Figmas platshållarfärg, syns medan bilden laddar */
+}
+
+.media-card--16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.media-card--4x5 {
+  aspect-ratio: 4 / 5;
+}
+
+.media-card--5x4 {
+  aspect-ratio: 5 / 4;
+}
+
 /* ---------- Navigation (Figma: "Navigation") ---------- */
 
 /*
@@ -146,5 +173,38 @@
   .text-section__body {
     grid-column: 5 / span 6;
     grid-row: 1;
+  }
+}
+
+/* ---------- Galleri (Figma: "Gallery Grid") ---------- */
+
+/*
+  Rad 1: bred bild över hela bredden.
+  Rad 2: stående bild till vänster, liggande till höger, båda i toppkant.
+  Mobil: kolumn 1–4 och 5–6. Desktop: kolumn 1–6 och 7–12.
+*/
+.gallery {
+  align-items: start;
+}
+
+.gallery__item--wide {
+  grid-column: 1 / -1;
+}
+
+.gallery__item--left {
+  grid-column: 1 / span 4;
+}
+
+.gallery__item--right {
+  grid-column: 5 / span 2;
+}
+
+@media (min-width: 48em) {
+  .gallery__item--left {
+    grid-column: 1 / span 6;
+  }
+
+  .gallery__item--right {
+    grid-column: 7 / span 6;
   }
 }

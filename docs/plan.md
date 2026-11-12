@@ -13,7 +13,7 @@ Vi jobbar ett steg i taget. Varje steg avslutas med en jämförelse mot Figma vi
 | --- | --- |
 | Teknik | Ren HTML och CSS. JavaScript används inte. |
 | Mobilmenyn ("Meny") | Utan JavaScript: `<details>`/`<summary>` som fäller ut länkarna. Det öppna läget följer komponenten "Navigation / Breakpoint=Mobile, Open=True" på sidan Components. |
-| Bilder | Desktop-bilderna (3 st) används i alla storlekar, i varje rams layout. Mobilramens vattenmärkta bild och lilla tumnagel tas inte med. |
+| Bilder | Desktop-bilderna (3 st) används i alla storlekar, i varje rams layout. Mobilramens vattenmärkta bild tas inte med. Den "lilla tumnageln" visade sig vara galleriets tredje bildkort, så på mobil visas fasadbilden där, liten i kolumn 5–6. |
 | Mellanstorlekar | Typografi och avstånd skalar flytande med `clamp()` mellan mobilvärdet vid 375 px och desktopvärdet vid 1440 px. Layouten byter från mobil till desktop vid en brytpunkt. |
 | Text | Exakt som i Figma, inklusive platshållartexter ("Section title", lorem ipsum). |
 | Typsnitt | Anton 400 och Inter 400/500, laddade direkt från Google Fonts. |
@@ -75,9 +75,16 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
       - Mobil: samma placering och radbrytningar, men sektionen blir 293 px hög i stället för
         Figmas 288. Komponenten har en fast höjd i Figma som skär av 5 px av marginalen under
         texten. Här styr innehållet höjden, så galleriet hamnar 5 px längre ner på mobil.
-- [ ] **5. Galleri** – exportera och optimera de tre bilderna från Figma; en bred bild överst och två
+- [x] **5. Galleri** – exportera och optimera de tre bilderna från Figma; en bred bild överst och två
       bredvid varandra under, med rundade hörn, rätt proportioner och `width`/`height` mot
       layoutskiften.
+      - Källbilderna är 1834 × 2751 och centrumbeskärs i Figma. De är förbeskurna till 16:9, 4:5
+        och 5:4 och sparade som WebP i tre bredder var (`srcset`), 4–230 kB per fil.
+      - Bildkorten (`.media-card`) har `object-fit: cover`, hörnradien och Figmas grå
+        platshållarfärg. Bilderna under den breda laddas lat.
+      - Sektionen har `id="case"`, så att länken Case hoppar hit.
+      - Desktop som i Figma: 1710 px hög, bilderna 1376 × 774, 672 × 840 och 672 × 538.
+        Mobil: 520 px hög med samma mått som i Figma, men 5 px längre ner (se steg 4).
 - [ ] **6. Kompetenser** – rubrik och fyra listor (Skills, Experience, Tools, Tools) med sekundär
       färg på underrubrikerna; två kolumner på mobil.
 - [ ] **7. Om mig** – text och porträtt; bilden till höger på desktop och ovanför texten på mobil.
