@@ -123,3 +123,28 @@
     display: block;
   }
 }
+
+/* ---------- Textsektion (Figma: "Text Section") ---------- */
+
+.text-section {
+  align-items: start;
+}
+
+/* Mobil: rubriken över texten, båda över hela bredden. */
+.text-section__title,
+.text-section__body {
+  grid-column: 1 / -1;
+}
+
+/* Desktop: rubriken i kolumn 1–4 och texten i kolumn 5–10, på samma rad. */
+@media (min-width: 48em) {
+  .text-section__title {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+  }
+
+  .text-section__body {
+    grid-column: 5 / span 6;
+    grid-row: 1;
+  }
+}

@@ -67,8 +67,14 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
         (kontrollerat vid 320 px).
       - Tokens avrundade så att värdena blir exakta vid 375 och 1440 px: 320 px hög sektion på
         desktop och 288 px på mobil, som i Figma.
-- [ ] **4. Textsektion** – "Section title" och brödtexten, i gridkolumner på desktop och staplat på
+- [x] **4. Textsektion** – "Section title" och brödtexten, i gridkolumner på desktop och staplat på
       mobil.
+      - `<h2>` i kolumn 1–4 och texten i kolumn 5–10 på desktop; staplat över hela bredden på
+        mobil.
+      - Desktop som i Figma: 209 px hög, texten på x 501,33 och 672 px bred, samma radbrytningar.
+      - Mobil: samma placering och radbrytningar, men sektionen blir 293 px hög i stället för
+        Figmas 288. Komponenten har en fast höjd i Figma som skär av 5 px av marginalen under
+        texten. Här styr innehållet höjden, så galleriet hamnar 5 px längre ner på mobil.
 - [ ] **5. Galleri** – exportera och optimera de tre bilderna från Figma; en bred bild överst och två
       bredvid varandra under, med rundade hörn, rätt proportioner och `width`/`height` mot
       layoutskiften.
