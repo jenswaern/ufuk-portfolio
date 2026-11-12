@@ -1,0 +1,102 @@
+/* Komponenter och sektioner, i samma ordning som på sidan. */
+
+/* ---------- Länk (Figma: komponenten "Link") ---------- */
+
+/* Default: text/primary. Hover: text/secondary. */
+.link {
+  color: var(--text-primary);
+  transition: color 0.15s ease;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--text-secondary);
+  }
+}
+
+/* ---------- Navigation (Figma: "Navigation") ---------- */
+
+/*
+  Namnet och menyknappen delar första raden. Mobilmenyns <details> spänner
+  över hela bredden, så att de utfällda länkarna hamnar under raden.
+*/
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  padding: var(--grid-margin);
+  background-color: var(--background-primary);
+}
+
+.site-header__name {
+  grid-row: 1;
+  grid-column: 1;
+  position: relative; /* ligger över <details>, som delar raden */
+  z-index: 1;
+  justify-self: start;
+}
+
+/* Desktop-länkarna */
+.site-nav {
+  display: none;
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.site-nav__list {
+  display: flex;
+  gap: 16px;
+}
+
+/* Mobilmenyn */
+.mobile-menu {
+  grid-row: 1;
+  grid-column: 1 / -1;
+}
+
+.mobile-menu__toggle {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  list-style: none;
+  cursor: pointer;
+}
+
+.mobile-menu__toggle::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-menu__label-close,
+.mobile-menu[open] .mobile-menu__label-open {
+  display: none;
+}
+
+.mobile-menu[open] .mobile-menu__label-close {
+  display: inline;
+}
+
+.mobile-menu__nav {
+  margin-top: 64px;
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Block så att raden blir textens höjd (radavstånd 1), inte listans. */
+.site-nav__list .link,
+.mobile-menu__list .link {
+  display: block;
+}
+
+@media (min-width: 48em) {
+  .site-nav {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+}

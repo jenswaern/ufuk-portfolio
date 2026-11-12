@@ -12,10 +12,35 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
   </head>
   <body>
-    <header>
-      <!-- Steg 2: Navigation -->
+    <header class="site-header">
+      <a class="site-header__name link-sm" href="./">Ufuk Demir</a>
+
+      <!-- Desktop: länkarna syns direkt -->
+      <nav class="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a class="link link-sm" href="#case">Case</a></li>
+          <li><a class="link link-sm" href="#about">About</a></li>
+          <li><a class="link link-sm" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobil: "Meny" fäller ut länkarna, utan JavaScript -->
+      <details class="mobile-menu">
+        <summary class="mobile-menu__toggle link link-sm" lang="sv">
+          <span class="mobile-menu__label-open">Meny</span>
+          <span class="mobile-menu__label-close">Stäng</span>
+        </summary>
+        <nav class="mobile-menu__nav" aria-label="Main">
+          <ul class="mobile-menu__list">
+            <li><a class="link link-lg" href="#case">Case</a></li>
+            <li><a class="link link-lg" href="#about">About</a></li>
+            <li><a class="link link-lg" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </details>
     </header>
 
     <main>

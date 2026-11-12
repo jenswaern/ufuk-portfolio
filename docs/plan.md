@@ -12,7 +12,7 @@ Vi jobbar ett steg i taget. Varje steg avslutas med en jämförelse mot Figma vi
 | Fråga | Beslut |
 | --- | --- |
 | Teknik | Ren HTML och CSS. JavaScript används inte. |
-| Mobilmenyn ("Meny") | Utan JavaScript: `<details>`/`<summary>` som fäller ut länkarna. Ritas i samma stil som resten, eftersom Figma saknar ett öppet läge. |
+| Mobilmenyn ("Meny") | Utan JavaScript: `<details>`/`<summary>` som fäller ut länkarna. Det öppna läget följer komponenten "Navigation / Breakpoint=Mobile, Open=True" på sidan Components. |
 | Bilder | Desktop-bilderna (3 st) används i alla storlekar, i varje rams layout. Mobilramens vattenmärkta bild och lilla tumnagel tas inte med. |
 | Mellanstorlekar | Typografi och avstånd skalar flytande med `clamp()` mellan mobilvärdet vid 375 px och desktopvärdet vid 1440 px. Layouten byter från mobil till desktop vid en brytpunkt. |
 | Text | Exakt som i Figma, inklusive platshållartexter ("Section title", lorem ipsum). |
@@ -50,8 +50,14 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
       - Textstilarna heter som i Figma: `.heading`, `.subheading`, `.body`, `.link-sm`, `.link-lg`.
         Body och Subheading har radavståndet `normal`, som motsvarar Figmas "auto" (1,2 för Inter).
       - Kontrollerat vid 375, 768 och 1440 px: alla tokens får Figmas värden vid ändpunkterna.
-- [ ] **2. Navigation** – namn till vänster, Case/About/Contact till höger på desktop; "Meny" med
+- [x] **2. Navigation** – namn till vänster, Case/About/Contact till höger på desktop; "Meny" med
       `<details>` på mobil.
+      - Öppen meny: knappen byter till "Stäng" och länkarna visas i `text/link-lg` med 8 px
+        mellanrum, 64 px under raden. Menyn trycker ner sidan, som i Figma.
+      - Länkarna blir `text/secondary` vid hover (komponenten "Link", State=Hover), bara på
+        enheter med mus.
+      - Kontrollerat: 88 px hög på desktop, 52 px stängd och 228 px öppen på mobil, som i Figma.
+      - Utan JavaScript stängs menyn inte av sig själv när man klickar på en länk.
 - [ ] **3. Rubriksektion** – "Digital designer based in Gothenburg" i Anton.
 - [ ] **4. Textsektion** – "Section title" och brödtexten, i gridkolumner på desktop och staplat på
       mobil.
