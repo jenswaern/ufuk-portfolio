@@ -42,9 +42,14 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
 ## Steg
 
 - [x] **0. Plan och repo** – frågor besvarade, plan skriven, git-repo skapat.
-- [ ] **1. Grund** – filstruktur (`index.html`, `css/`, `fonts/`, `images/`), reset, självhostade
+- [x] **1. Grund** – filstruktur (`index.html`, `css/`, `fonts/`, `images/`), reset, självhostade
       typsnitt, tokens som CSS-variabler med flytande `clamp()`, gridet (6/12 kolumner) och
       basstilar för typografin. Lokal förhandsvisning.
+      - Brytpunkten är `48em` (768 px). Där byter färgen `text/secondary` och gridet går från 6
+        till 12 kolumner.
+      - Textstilarna heter som i Figma: `.heading`, `.subheading`, `.body`, `.link-sm`, `.link-lg`.
+        Body och Subheading har radavståndet `normal`, som motsvarar Figmas "auto" (1,2 för Inter).
+      - Kontrollerat vid 375, 768 och 1440 px: alla tokens får Figmas värden vid ändpunkterna.
 - [ ] **2. Navigation** – namn till vänster, Case/About/Contact till höger på desktop; "Meny" med
       `<details>` på mobil.
 - [ ] **3. Rubriksektion** – "Digital designer based in Gothenburg" i Anton.

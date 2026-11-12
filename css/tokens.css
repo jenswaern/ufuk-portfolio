@@ -1,0 +1,51 @@
+/*
+  Designtokens från Figma-variablerna (sidan "Startsida").
+
+  Varje variabel har ett mobilvärde (ramen Mobile, 375 px) och ett desktopvärde
+  (ramen Desktop, 1440 px). Storlekar skalar linjärt däremellan med clamp():
+
+    clamp(min, intercept + lutning * 100vw, max)
+
+    lutning   = (max - min) / (1440 - 375)
+    intercept = min - lutning * 375
+
+  Så blir värdet exakt mobilvärdet vid 375 px och exakt desktopvärdet vid
+  1440 px. Intercept står i rem så att texten följer webbläsarens textstorlek.
+
+  Det som inte kan skala (färger, antal kolumner) byter vid brytpunkten 48em
+  (768 px), samma brytpunkt som layouten byter vid.
+*/
+
+:root {
+  /* Färger */
+  --text-primary: #141400;
+  --text-secondary: #949494; /* mobil */
+  --background-primary: #f8f8f8;
+  --border-primary: #141400;
+
+  /* Typsnitt */
+  --font-heading: "Anton", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Grid: 16 → 32 px */
+  --grid-columns: 6; /* mobil */
+  --grid-margin: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
+  --grid-gap: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
+
+  /* Hörnradie: 4 → 8 px. Heter "croner/radius" i Figma. */
+  --corner-radius: clamp(0.25rem, 0.162rem + 0.3756vw, 0.5rem);
+
+  /* Textstorlekar */
+  --text-heading: clamp(4rem, 2.5916rem + 6.0094vw, 8rem); /* 64 → 128 px */
+  --text-subheading: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem); /* 24 → 32 px */
+  --text-body: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); /* 20 → 24 px */
+  --text-link-sm: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); /* 20 → 24 px */
+  --text-link-lg: clamp(2rem, 1.6479rem + 1.5023vw, 3rem); /* 32 → 48 px */
+}
+
+@media (min-width: 48em) {
+  :root {
+    --text-secondary: #4e4e4e; /* desktop */
+    --grid-columns: 12; /* desktop */
+  }
+}

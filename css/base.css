@@ -1,0 +1,121 @@
+/* Typsnitt, basstilar, textstilar och grid. */
+
+/* ---------- Typsnitt (självhostade, latin-subset) ---------- */
+
+@font-face {
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/anton-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/inter-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/inter-latin-500-normal.woff2") format("woff2");
+}
+
+/* ---------- Bas ---------- */
+
+html {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+body {
+  background-color: var(--background-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: normal;
+}
+
+:focus-visible {
+  outline: 2px solid var(--border-primary);
+  outline-offset: 4px;
+}
+
+/* ---------- Textstilar (samma namn som i Figma) ---------- */
+
+/* Heading: Anton Regular, radavstånd 1 */
+.heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading);
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Subheading: Inter Medium, radavstånd auto */
+.subheading {
+  font-family: var(--font-body);
+  font-size: var(--text-subheading);
+  font-weight: 500;
+  line-height: normal;
+}
+
+/* Body: Inter Medium, radavstånd auto */
+.body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: normal;
+}
+
+/* Link S: Inter Regular, radavstånd 1 */
+.link-sm {
+  font-family: var(--font-body);
+  font-size: var(--text-link-sm);
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Link L: Inter Regular, radavstånd 1 */
+.link-lg {
+  font-family: var(--font-body);
+  font-size: var(--text-link-lg);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* ---------- Grid ---------- */
+
+/*
+  6 kolumner på mobil, 12 på desktop, med Figmas marginal och mellanrum.
+  Placera barn med grid-column, t.ex. "1 / span 4".
+*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--grid-gap);
+  padding: var(--grid-margin);
+}
+
+/* ---------- Hjälpklasser ---------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
