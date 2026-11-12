@@ -85,8 +85,13 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
       - Sektionen har `id="case"`, så att länken Case hoppar hit.
       - Desktop som i Figma: 1710 px hög, bilderna 1376 × 774, 672 × 840 och 672 × 538.
         Mobil: 520 px hög med samma mått som i Figma, men 5 px längre ner (se steg 4).
-- [ ] **6. Kompetenser** – rubrik och fyra listor (Skills, Experience, Tools, Tools) med sekundär
+- [x] **6. Kompetenser** – rubrik och fyra listor (Skills, Experience, Tools, Tools) med sekundär
       färg på underrubrikerna; två kolumner på mobil.
+      - `<h2>` "Kompetenser" och fyra grupper med `<h3>` och `<ul>`, 16 px mellan etikett och
+        lista.
+      - Desktop: rubriken i kolumn 1–4, grupperna i kolumn 5–8 och 9–12 i två rader. Mobil:
+        rubriken överst, grupperna i kolumn 1–3 och 4–6.
+      - Varje ruta stämmer med Figmas mått: 389 px hög på desktop och 341 px på mobil.
 - [ ] **7. Om mig** – text och porträtt; bilden till höger på desktop och ovanför texten på mobil.
 - [ ] **8. Länkfot** – tre breda länkar med pil och linjer emellan, i `text/link-lg`.
 - [ ] **9. Finputs** – jämförelse mot Figma sektion för sektion vid 375, 768, 1024 och 1440 px,
