@@ -313,3 +313,40 @@
     grid-row: 1;
   }
 }
+
+/* ---------- Länkfot (Figma: "Link Footer" med komponenten "Link Wide") ---------- */
+
+/*
+  Varje rad är en hel länk: linje överst, marginalen som utfyllnad, texten till
+  vänster och pilen till höger. Pilen är lika hög som texten (radavstånd 1).
+  Linjerna går kant i kant.
+*/
+.link-wide {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--grid-margin);
+  border-top: 1px solid var(--border-primary);
+}
+
+.link-wide:focus-visible {
+  outline-offset: -4px;
+}
+
+.link-wide__label {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/*
+  Pilen från Figma används oförändrad som mask och fylls med textens färg,
+  så att den blir grå tillsammans med texten vid hover.
+*/
+.link-wide__arrow {
+  flex: none;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url("../images/arrow-forward.svg") center / contain no-repeat;
+  mask: url("../images/arrow-forward.svg") center / contain no-repeat;
+}

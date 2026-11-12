@@ -101,7 +101,17 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
       - Porträttet i Figma är bara 605 × 598 px, så den beskurna bilden blir 478 px bred. Det
         räcker för vanliga skärmar men blir lite oskarpt på retina. Byt till en större bild när
         den finns.
-- [ ] **8. Länkfot** – tre breda länkar med pil och linjer emellan, i `text/link-lg`.
+- [x] **8. Länkfot** – tre breda länkar med pil och linjer emellan, i `text/link-lg`.
+      - Varje rad är en hel länk (komponenten "Link Wide"): 1 px linje överst, marginalen som
+        utfyllnad, texten till vänster och pilen till höger, lika hög som texten.
+      - Pilen från Figma används oförändrad som CSS-mask och fylls med textens färg, så att text och
+        pil blir grå tillsammans vid hover. (Figmas hover-pil har #949494 inbränt, medan desktopens
+        grå är #4E4E4E.)
+      - Länkmål: All cases → `#case`, My experience → `#experience` (kompetenssektionen),
+        Let’s work together → `#contact` (foten själv). Den sista behöver ett riktigt mål, t.ex.
+        en mejladress.
+      - Desktop som i Figma: 339 px hög med rader på 113 px, och hela sidan 3666 px. Mobil: 195 px
+        med rader på 65 px, 5 px längre ner (se steg 4).
 - [ ] **9. Finputs** – jämförelse mot Figma sektion för sektion vid 375, 768, 1024 och 1440 px,
       tillgänglighet (semantik, fokusmarkering, alt-texter, kontrast), validering av HTML och CSS,
       `<title>`, beskrivning och favicon.
