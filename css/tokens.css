@@ -38,6 +38,7 @@
   --corner-radius: clamp(0.25rem, 0.162rem + 0.375587vw, 0.5rem);
 
   /* Textstorlekar */
+
   /*
     64 → 128 px. Under 375 px krymper rubriken i samma takt som skärmen
     (64 / 375 = 17,066667vw), annars bryts "GOTHENBURG" mitt i ordet.

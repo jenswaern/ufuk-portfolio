@@ -346,7 +346,7 @@
   flex: none;
   width: 1em;
   height: 1em;
-  background-color: currentColor;
+  background-color: currentcolor;
   -webkit-mask: url("../images/arrow-forward.svg") center / contain no-repeat;
   mask: url("../images/arrow-forward.svg") center / contain no-repeat;
 }

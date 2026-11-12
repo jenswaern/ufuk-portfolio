@@ -23,6 +23,29 @@ body {
   outline-offset: 4px;
 }
 
+/* main får fokus via hopplänken, men ska inte få en ram runt hela sidan. */
+main:focus {
+  outline: none;
+}
+
+/* Hopplänk för tangentbord: dold tills den får fokus. */
+.skip-link {
+  position: absolute;
+  top: var(--grid-margin);
+  left: var(--grid-margin);
+  z-index: 10;
+  padding: 8px 12px;
+  background-color: var(--text-primary);
+  color: var(--background-primary);
+  border-radius: var(--corner-radius);
+  transform: translateY(calc(-100% - var(--grid-margin) - 8px));
+}
+
+.skip-link:focus-visible {
+  transform: none;
+  outline-color: var(--text-primary);
+}
+
 /* ---------- Textstilar (samma namn som i Figma) ---------- */
 
 /* Heading: Anton Regular, radavstånd 1 */
@@ -78,8 +101,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
-  column-gap: var(--grid-gap);
-  row-gap: var(--grid-gap);
+  gap: var(--grid-gap);
   padding: var(--grid-margin);
 }
 
@@ -92,7 +114,7 @@ body {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }

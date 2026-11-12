@@ -112,9 +112,30 @@ Variablerna har ett läge per ram. Desktopvärdet gäller vid 1440 px, mobilvär
         en mejladress.
       - Desktop som i Figma: 339 px hög med rader på 113 px, och hela sidan 3666 px. Mobil: 195 px
         med rader på 65 px, 5 px längre ner (se steg 4).
-- [ ] **9. Finputs** – jämförelse mot Figma sektion för sektion vid 375, 768, 1024 och 1440 px,
+- [x] **9. Finputs** – jämförelse mot Figma sektion för sektion vid 375, 768, 1024 och 1440 px,
       tillgänglighet (semantik, fokusmarkering, alt-texter, kontrast), validering av HTML och CSS,
       `<title>`, beskrivning och favicon.
+      - Sektionshöjderna stämmer med Figma: desktop 88, 320, 209, 1710, 389, 610,67 och 339 px
+        (sidan 3666 px); mobil 52, 288, 293, 520, 341, 681,75 och 195 px, där bara textsektionen
+        skiljer sig (293 mot 288, se steg 4). Ingen sidledsscroll vid 320–1920 px, och inga fel i
+        konsolen.
+      - Tillgänglighet: rubrikordning h1 → h2 → h3, alt-texter på alla bilder, synlig
+        fokusmarkering, och en hopplänk ("Skip to content") som bara syns vid tangentbordsfokus.
+        De två navigationerna har olika namn ("Main" och "Main menu").
+      - Kontrast: primärtexten 17,5:1 och desktopens grå 7,84:1 klarar WCAG AA. Mobilens grå
+        #949494 ger bara 2,86:1 (AA kräver 4,5:1) men behålls, enligt beslut, för att följa
+        Figma.
+      - `<meta name="description">`, `theme-color` och en tillfällig favicon (`favicon.svg`).
+      - Validerat med html-validate och stylelint (standardregler). Kvar är bara stilval:
+        BEM-klassnamn, `min-width` i stället för intervallsyntax, decimaler som behövs för exakta
+        mått och prefix som äldre Safari behöver.
+
+## Kvar att göra
+
+- Ett riktigt mål för "Let’s work together", t.ex. en mejladress.
+- Ett större porträtt (minst 874 px brett) för skarp bild på retinaskärmar.
+- En riktig favicon.
+- Riktig text i stället för platshållarna ("Section title", lorem ipsum).
 
 ## Arbetssätt
 
